@@ -21,6 +21,8 @@ jobs:
         gradle-version: 8.5
 
     - name: Build Debug APK
+      env:
+        GRADLE_OPTS: "-Dorg.gradle.jvmargs=-Xmx4096m -XX:MaxMetaspaceSize=1024m"
       run: gradle assembleDebug
 
     - name: Upload APK
